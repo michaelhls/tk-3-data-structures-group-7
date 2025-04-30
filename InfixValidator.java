@@ -20,7 +20,7 @@ class Token {
     this.type = type;
   }
 
-  public TokenType getTokenType() {
+  public TokenType getType() {
     return this.type;
   }
 
@@ -35,7 +35,7 @@ public class InfixValidator {
 
   private static boolean validatePreviousNumber(final Stack<Token> tokens) {
     if (!tokens.isEmpty()) {
-      return tokens.peek().getTokenType() != TokenType.OPERAND;
+      return tokens.peek().getType() != TokenType.OPERAND;
     }
 
     return true;
@@ -46,7 +46,7 @@ public class InfixValidator {
       return false;
     }
 
-    final TokenType previousTokenType = tokens.peek().getTokenType();
+    final TokenType previousTokenType = tokens.peek().getType();
 
     return previousTokenType == TokenType.OPERAND || previousTokenType == TokenType.CLOSING_BRACKET;
   }
